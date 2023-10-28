@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>asset/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
-<body>
-<!-- container -->
-<div>    
-    <!-- header -->
-    <header>
-        <h1>Lokal coffee</h1>
-        <!-- navbar -->
-        <nav>
-            <ul>
-                <li><a href="">ADMIN</a></li>
-            </ul>
-        </nav>
-        <!-- navbar end -->
-    </header>
-    <!-- header end -->
-    
+
+<body class="m-0 p-0">
+    <!-- container -->
+    <div class="container-fluid m-0 p-0">
+        <!-- header -->
+        <header>
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg border-bottom shadow-sm bg-transparent pt-1 pb-1">
+                <div class="container-fluid">
+                    <h1 class="navbar-brand fw-bold fs-3" href="#">Lokal coffee</h1>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav nav-underline ms-auto pe-4 fw-bold">
+                            <li class="nav-item ps-3">
+                                <a class="nav-link" href="<?php echo base_url() . 'index.php/admin'; ?>">Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar end -->
+        </header>
+        <!-- header end -->

@@ -1,39 +1,32 @@
-    <div>
+    <div class="d-flex" style="min-height: 506px;">
         <!-- untuk Image -->
-        <div>
-            img
-        </div>
 
         <!-- form login -->
-        <div>
-            <h1>LOGIN</h1>
-            <form action="" method="post">
+        <div class="ms-auto me-5 mt-auto mb-auto ">
+            <form class="card border border-1 rounded-4 p-4 pt-3" action="" method="post">
+                <h1 class="text-center mb-0 mt-0 ">LOGIN</h1>
+                <hr class="border border-black border-1 opacity-100 mt-0 ms-auto me-auto col-4">
 
                 <!-- inputan username -->
-                <label for="username">Username</label>
-                <div>
-                    <span>
-                        <img src="" alt="">
-                    </span>
-                    <!-- logo pinggir inputan end-->
-                    <input type="text" name="username" id="username">
-                    <!-- inputan username end-->
+                <div class="mb-2">
+                    <label for="InputEmail1" class="form-label">Username</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><img src="logo pala botak.jpg" alt=" "></span>
+                        <input type="text" class="form-control" name="loginUsername" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
                 </div>
 
                 <!-- inputan password -->
-                <label for="password">password</label>
-                <div>
-                    <span>
-                        <img src="" alt="">
-                    </span>
-                    <!-- logo pinggir inputan end-->
-                    <input type="password" name="password" id="password">
-                    <!-- inputan password end-->
+                <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><img src="logo  gembok.jpg" alt=" "></span>
+                        <input type="Password" class="form-control" name="loginPassword" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                    </div>
                 </div>
 
                 <!-- button submit-->
-                <button type="submit">Login</button>
-                <!-- button submit end-->
+                    <button type="submit" class="btn btn-primary col-4 ">Login</button>
 
             </form>
         </div>
