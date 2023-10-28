@@ -28,7 +28,7 @@
 - ### buyProduct.php
   ![img](asset/image/Buy.png)
 - ### Pop-up in BuyProduct
-  ![img](asset/image/Pop-up.png)
+![img](asset/image/pop-up.png)
 - ### submission.php
   ![img](asset/image/Submission.png)
 - ### loginAdmin.php
