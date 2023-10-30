@@ -35,7 +35,7 @@
                             </li>
                             <li class="nav-item dropdown ps-3">
                                 <div class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img class="me-2" src=" " alt=" ">
+                                    <img class="me-2" src="<?php echo base_url(); ?>asset/image/username.jpg" alt=" ">
                                     <a>Username</a>
                                 </div>
                                 <ul class="dropdown-menu bg-transparent">
