@@ -1,7 +1,7 @@
 <div class="slide-container swiper">
     <div class="slide-content">
         <div class="card-wrapper swiper-wrapper">
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -15,7 +15,7 @@
                     <h2 class="name">Kopi Toraja</h2>
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -29,7 +29,7 @@
                     <h2 class="name">Kopi Arabica Gayo</h2>
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -45,7 +45,7 @@
 
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -61,7 +61,7 @@
 
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -77,7 +77,7 @@
 
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -93,7 +93,7 @@
 
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -109,7 +109,7 @@
 
                 </div>
             </div>
-            <div class="card swiper-slide">
+            <div class="swiper-card swiper-slide">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
@@ -128,5 +128,34 @@
     <div class="swiper-button-next swipper-navBtn"></div>
     <div class="swiper-button-prev swipper-navBtn"></div>
     <div class="swiper-pagination"></div>
+</div>
+<div class="container-fluid">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-shopping-cart fa-lg"></i>
+        <h2 class="ps-3 ">Shop</h2>
+    </div>
+    <hr class="shadow-lg bg-dark">
+    <div class="shop-content">
+        <div class="shop-card">
+            <div class="shop-image-content">
+                <span class="overlay"></span>
+                <div class="shop-card-image">
+                    <img src="<?php echo base_url(); ?>asset/image/Kopi_Flores.jpg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="shop-card-content">
+                <h2 class="shop-name">Kopi Java</h2>
+                <div class="shop-description">
+                    <p class="shop-desc">Desc: <a href="#">detail</a></p>
+                    <p class="shop-desc">Price: $5000/Ton</p>
+                    <p class="shop-desc">Min.1Ton</p>
+                </div>
+                <div class="d-flex">
+                    <button class="button ">Pre-Orders</button>
+                    <button class="button fas fa-cart-plus"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>

@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-warning bg-gradient sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style=" background: linear-gradient(225deg, rgba(116, 14, 15, 1) 15%,rgba(0, 0, 0, 1) 100%);">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -16,7 +16,7 @@
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-fw fa book"></i>
+            <i class="fa fa-info-circle"></i>
             <span>Product</span>
         </a>
     </li>
@@ -30,12 +30,12 @@
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-fw fa book"></i>
-            <span>Buy</span></a>
+            <i class="fas fa-shopping-cart"></i>
+            <span>Shop</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>">
-            <i class="fa fa-fw"></i>
+            <i class="fas fa-cart-plus"></i>
             <span>Cart</span></a>
     </li>
     </li>
@@ -48,19 +48,19 @@
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-fw"></i>
+            <i class="fa fa-table"></i>
             <span>Submission in Proses</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-fw"></i>
+            <i class="fas fa-file-signature"></i>
             <span>Submission Accepted</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-fw"></i>
+            <i class="fas fa-history"></i>
             <span>History</span>
         </a>
     </li>

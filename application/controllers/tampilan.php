@@ -42,11 +42,11 @@ class Tampilan extends CI_Controller
 
     public function buy()
     {
-        $data['judul'] = 'Buy';
+        $data['judul'] = 'Orders';
         $this->load->view('temp/header', $data);
         $this->load->view('temp/sidebar', $data);
         $this->load->view('temp/topbar', $data);
-        $this->load->view('user/buy', $data);
+        $this->load->view('user/index', $data);
         $this->load->view('temp/footer');
     }
 
