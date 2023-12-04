@@ -11,12 +11,13 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.792)
+	background-color: rgba(0, 0, 0, 0.792);
 }
 #wrapper {
 	overflow-x: hidden;
 	margin: 0px;
 	padding: 0;
+	min-width: 100%;
 }
 /* header_user */
 nav {
@@ -94,6 +95,12 @@ footer {
 	padding-left: 15px;
 	height: 50px;
 	width: 100%;
+}
+.container-image-content {
+	display: flex;
+	height: 150px;
+	width: 100%;
+	flex-grow: 1;
 }
 .image-content {
 	position: relative;
@@ -180,7 +187,8 @@ footer {
 	color: #707070;
 	text-align: left;
 	padding: 0px 10px;
-	max-height: 80px;
+	min-width: 170px;
+	max-width: 200px;
 }
 .desc {
 	margin-bottom: 8px;
@@ -197,7 +205,7 @@ footer {
 }
 
 .swipper-navBtn {
-	color: #ffffff;
+	color: rgba(116, 14, 16, 0.093);
 	transition: color 0.3s ease;
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
@@ -205,7 +213,7 @@ footer {
 	-o-transition: color 0.3s ease;
 }
 .swipper-navBtn:hover {
-	color: #ffe6cd;
+	color: rgba(116, 14, 16, 0.81);
 }
 
 .swipper-navBtn::before,

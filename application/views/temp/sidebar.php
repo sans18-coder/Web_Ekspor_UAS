@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style=" background: linear-gradient(225deg, rgba(116, 14, 15, 1) 15%,rgba(0, 0, 0, 1) 100%);">
+<ul class="navbar-nav sidebar sidebar-dark accordion " id="accordionSidebar" style=" background: linear-gradient(225deg, rgba(116, 14, 15, 1) 15%,rgba(0, 0, 0, 1) 100%);">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon rotate-n-15">

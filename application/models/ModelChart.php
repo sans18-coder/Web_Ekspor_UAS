@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script acces allowed');
-class ModelCart extends CI_Model
+class ModelChart extends CI_Model
 {
     // manajemen cart
     public function getCart()

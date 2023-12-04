@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script acces allowed');
-class ModelOrder extends CI_Model
+class ModelOrders extends CI_Model
 {
     // manajemen orders
     public function getOrders()
