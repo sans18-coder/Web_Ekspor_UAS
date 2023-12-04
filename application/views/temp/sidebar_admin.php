@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style=" background: linear-gradient(225deg, rgba(116, 14, 15, 1) 15%,rgba(0, 0, 0, 1) 100%);">
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar" >
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
@@ -10,20 +10,20 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Looping Menu-->
-    <div class="sidebar-heading">Submission</div>
+    <div class="sidebar-heading">Pengajuan</div>
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
             <i class="fa fa-table"></i>
-            <span>Submission</span>
+            <span>Daftar Pengajuan</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fas fa-history"></i>
-            <span>Submission Accepted</span>
+            <i class="fas fa-file-signature"></i>
+            <span>Pengajuan disetujui</span>
         </a>
     </li>
     </li>
