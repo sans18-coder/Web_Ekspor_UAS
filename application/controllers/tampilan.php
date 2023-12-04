@@ -16,6 +16,26 @@ class Tampilan extends CI_Controller
         $this->load->view('temp/footer', $data);
     }
 
+    public function tambah_produk()
+    {
+        $data['judul'] = 'Dashboard';
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar_admin', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('admin/tambah_produk', $data);
+        $this->load->view('temp/footer');
+    }
+
+    public function hapus_produk()
+    {
+        $data['judul'] = 'Dashboard';
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar_admin', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('admin/hapus_produk', $data);
+        $this->load->view('temp/footer');
+    }
+    
     public function login()
     {
         $data['judul'] = 'Login';
