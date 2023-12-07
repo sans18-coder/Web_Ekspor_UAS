@@ -88,12 +88,12 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-info-circle"></i>
-            <span>Product</span>
-        </a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+                <i class="fa fa-info-circle"></i>
+                <span>Product</span>
+            </a>
+        </li>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
@@ -102,16 +102,16 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fas fa-shopping-cart"></i>
-            <span>Shop</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>">
-            <i class="fas fa-cart-plus"></i>
-            <span>Cart</span></a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+                <i class="fas fa-shopping-cart"></i>
+                <span>Shop</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>">
+                <i class="fas fa-cart-plus"></i>
+                <span>Cart</span></a>
+        </li>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
@@ -120,24 +120,24 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fa fa-table"></i>
-            <span>Submission in Proses</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fas fa-file-signature"></i>
-            <span>Submission Accepted</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
-            <i class="fas fa-history"></i>
-            <span>History</span>
-        </a>
-    </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+                <i class="fa fa-table"></i>
+                <span>Submission in Process</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+                <i class="fas fa-file-signature"></i>
+                <span>Submission Accepted</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </a>
+        </li>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
