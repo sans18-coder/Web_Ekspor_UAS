@@ -35,7 +35,7 @@ class Tampilan extends CI_Controller
         $this->load->view('admin/hapus_produk', $data);
         $this->load->view('temp/footer');
     }
-    
+
     public function login()
     {
         $data['judul'] = 'Login';

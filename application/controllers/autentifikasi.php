@@ -2,6 +2,12 @@
 defined('BASEPATH') or exit('no direct script access allowed');
 class Autentifikasi extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('form_validation');
+    }
+
     public function index()
     {
         //jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user
@@ -28,6 +34,7 @@ class Autentifikasi extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Login';
             $data['user'] = '';
+
             //kata 'login' merupakan nilai dari variabel judul dalam array $data dikirimkan ke view aute_header
             $this->load->view('temp/header_login_regis', $data);
             $this->load->view('autentifikasi/login');
@@ -48,10 +55,10 @@ class Autentifikasi extends CI_Controller
             if (password_verify($password, $user['password'])) {
                 $data = [
                     'email' => $user['email'],
-                    'username' => $user['username']
+                    'username' => $user['username'],
                 ];
                 $this->session->set_userdata($data);
-                if ($user['Image'] == 'default.jpg') {
+                if ($user['Image'] == 'default.jpeg') {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-info alert-message" role="alert">Silahkan Ubah Profile Anda untuk Ubah Photo Profil</div>');
                 }
                 redirect('user');
@@ -152,18 +159,31 @@ class Autentifikasi extends CI_Controller
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
+                'phoneNumber' => htmlspecialchars($this->input->post('phoneNumber', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'userImage' => 'default.jpeg',
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'nationality' => htmlspecialchars($this->input->post('nationality')),
                 'isActive' => 1,
-                'tanggalDibuat' => time()
+                'tanggalDibuat' => date('Y-m-d')
             ];
             $this->ModelUser->simpanData($data); //menggunakan model
 
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Selamat!! akun member anda sudah dibuat. Silahkan Aktivasi Akun anda</div>');
             redirect('autentifikasi');
+        }
+    }
+    public function logout()
+    {
+        if ($this->session->userdata('email')) {
+            $this->session->unset_userdata('username');
+            $this->session->unset_userdata('email');
+            redirect('autentifikasi');
+        } else {
+            $this->session->unset_userdata('adminName');
+            $this->session->unset_userdata('hakAkses');
+            redirect('admin');
         }
     }
 }

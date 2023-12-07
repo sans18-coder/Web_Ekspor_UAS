@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar" >
+<ul class="navbar-nav bg-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
         <div class="sidebar-brand-icon">
@@ -15,13 +15,13 @@
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+        <a class="nav-link pb-0" href="<?= base_url('admin/dasboard'); ?>"><!--ini ntar ubah ke buku/kategori -->
             <i class="fa fa-table"></i>
             <span>Daftar Pengajuan</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+        <a class="nav-link pb-0" href="<?= base_url('admin/accepted'); ?>"><!--ini ntar ubah ke buku/kategori -->
             <i class="fas fa-file-signature"></i>
             <span>Pengajuan disetujui</span>
         </a>
@@ -35,24 +35,24 @@
     <li class="nav-item active">
         <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>"><!--ini ntar ubah ke buku/kategori -->
+        <a class="nav-link pb-0" href="<?= base_url('admin/tambahProduk'); ?>"><!--ini ntar ubah ke buku/kategori -->
             <i class="fas fa-plus-square"></i>
             <span>Tambah Produk</span></a>
     </li>
-   
-     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>">
+
+    <li class="nav-item">
+        <a class="nav-link pb-0" href="<?= base_url('admin/hapusProduk'); ?>">
             <i class="fas fa-trash"></i>
             <span>Hapus Produk</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link pb-0" href="<?= base_url(''); ?>">
+        <a class="nav-link pb-0" href="<?= base_url('admin/updateProduk'); ?>">
             <i class="fas fa-edit"></i>
             <span>Update Produk</span></a>
     </li>
     </li>
     <!-- Divider -->
-   
+
     <!-- Divider -->
     <hr class="sidebar-divider mt-3">
     <div class="text-center d-none d-md-inline">

@@ -3,11 +3,11 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <i class="fas fa-trash"></i> Hapus Produk
+            <i class="fas fa-sync-alt"></i> Update Produk
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Hapus</th>
+                        <th scope="col">Update</th>
                         <th scope="col">#</th>
                         <th scope="col">Nama Produk</th>
                         <th scope="col">Foto Produk</th>
@@ -22,7 +22,7 @@
                     foreach ($produk as $p) { ?>
                         <tr>
                             <td>
-                                <a href="<?= base_url('products/hapusProduk/') . $p['productId']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . ' ' . $p['productName']; ?> ?');" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a href="<?= base_url('product/ubahProduk/') . $p['productId']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> Ubah</a>
                             </td>
                             <th scope="row"><?= $a++; ?></th>
                             <td><?= $p['productName']; ?></td>

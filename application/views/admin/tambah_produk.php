@@ -16,8 +16,23 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    
+                    <?php
+                    $a = 1;
+                    foreach ($produk as $p) { ?>
+                        <tr>
+                            <th scope="row"><?= $a++; ?></th>
+                            <td><?= $p['productName']; ?></td>
+                            <td>
+                                <picture>
+                                    <source srcset="" type="image/svg+xml">
+                                    <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" class="img-fluid img-thumbnail" alt="...">
+                                </picture>
+                            </td>
+                            <td><?= $p['productDes']; ?></td>
+                            <td><?= $p['price']; ?></td>
+                            <td><?= $p['minOrder']; ?> Ton</td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -44,11 +59,11 @@
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukan Nama Produk">
                     </div>
-                
+
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="deskripsi_produk" name="pdeskripsi_produk" placeholder="Masukan Deskripsi Produk">
                     </div>
-                   
+
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukan Minimal Order Produk">
                     </div>
