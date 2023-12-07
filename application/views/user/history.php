@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
-                <span class="fas fa-clock mt-2 fs-5"> Submission in process</span>
+                <span class="fas fa-history mt-2 fs-5"> Submission History</span>
             </div>
             <div class="table-responsive mt-2">
                 <table class="table table-hover">
@@ -19,6 +19,7 @@
                             <th scope="col">Status Pengajuan</th>
                             <th scope="col">Payment Status</th>
                             <th scope="col">Prposal</th>
+
                         </tr>
                     </thead>
                     <tbody>

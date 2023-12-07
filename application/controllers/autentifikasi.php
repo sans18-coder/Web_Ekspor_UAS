@@ -165,7 +165,6 @@ class Autentifikasi extends CI_Controller
                 'userImage' => 'default.jpeg',
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'nationality' => htmlspecialchars($this->input->post('nationality')),
-                'isActive' => 1,
                 'tanggalDibuat' => date('Y-m-d')
             ];
             $this->ModelUser->simpanData($data); //menggunakan model

@@ -60,7 +60,7 @@ class User extends CI_Controller
                 $this->load->library('upload', $config);
                 if ($this->upload->do_upload('image')) {
                     $gambar_lama = $data['user']['userImage'];
-                    if ($gambar_lama != 'default.jpg') {
+                    if ($gambar_lama != 'default.jpeg') {
                         unlink(FCPATH . 'asset/image/profile/' . $gambar_lama);
                     }
                     $gambar_baru = $this->upload->data('file_name');
@@ -75,6 +75,54 @@ class User extends CI_Controller
 
             redirect('user/profile');
         }
+    }
+    public function cart()
+    {
+        $data['judul'] = 'Cart';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = 'user';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('user/cart', $data);
+        $this->load->view('temp/footer');
+    }
+    public function submission()
+    {
+        $data['judul'] = 'Submission in Process';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = 'user';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('user/submission', $data);
+        $this->load->view('temp/footer');
+    }
+    public function accepted()
+    {
+        $data['judul'] = 'Submission is accepted';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = 'user';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('user/accepted', $data);
+        $this->load->view('temp/footer');
+    }
+    public function history()
+    {
+        $data['judul'] = 'History';
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = 'user';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('user/history', $data);
+        $this->load->view('temp/footer');
     }
     public function logout()
     {
