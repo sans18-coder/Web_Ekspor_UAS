@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>pustaka-booking | <?= $judul; ?></title>
+    <title>Lokal Coffee | <?= $judul; ?></title>
     <!-- Custom fonts for this template-->
     <!-- Custom styles for this template-->
     <link href="<?= base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
