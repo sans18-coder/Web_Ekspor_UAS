@@ -1,0 +1,22 @@
+
+.bg-login{
+    background-image: url("../image/gambarkopi.jpg");
+    background-size: cover;
+}
+.bg-card{
+    background-color: rgba(255, 255, 255, 0.527);
+}
+.navbar{
+    background-color:rgba(255, 255, 255, 0.527);
+}
+.bg-register{
+    background-image: url("../image/gambarkopi.jpg");
+    background-size: cover;
+}
+.bg-admin{
+    background-image: url("../image/gambarkopi.jpg");
+    background-size: cover;
+}
+.card-admin{
+    background-color: rgba(255, 255, 255, 0.527);
+}
