@@ -1,14 +1,9 @@
-<div class="d-flex" style="min-height: 506px;">
+<div class="bg-admin d-flex" style="min-height: 646px;">
     <!-- untuk Image -->
-    <div>
-        <img src="" alt="">
-        gambar cofe
-    </div>
-
     <!-- form login -->
     <div class="ms-auto me-5 mt-auto mb-auto ">
-        <form class="card border border-1 rounded-4 p-4 pt-3" action="<?= base_url('Admin/login'); ?>" method="post">
-            <h1 class="text-center mb-0 mt-0 ">Admin</h1>
+        <form class="card-admin card border border-1 rounded-4 p-4 pt-3" action="<?= base_url('Admin/login'); ?>" method="post">
+            <h1 class="text-center mb-0 mt-0 ">ADMIN</h1>
             <hr class="border border-black border-1 opacity-100 mt-0 ms-auto me-auto col-4">
             <?= $this->session->flashdata('pesan'); ?>
             <!-- inputan username -->
