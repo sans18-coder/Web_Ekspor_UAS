@@ -1,8 +1,9 @@
+<div class="bg-register" style="min-height: 606px;">
 <!-- form Register -->
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center pt-5 pb-4" style="min-height: 650px;">
-        <form class="card border border-1 rounded-4 p-4 pt-3 col-6" action="<?= base_url('autentifikasi/registrasi'); ?>" method="post">
-            <h1 class="text-center mb-0 mt-0">Register</h1>
+        <form class="card-register card border border-1 rounded-4 p-4 pt-3 col-6" action="<?= base_url('autentifikasi/registrasi'); ?>" method="post">
+            <h1 class="text-center mb-0 mt-0">REGISTER</h1>
             <hr class="border border-black border-1 opacity-100 ms-auto me-auto mt-0 col-3">
             <div class="d-flex ">
 
