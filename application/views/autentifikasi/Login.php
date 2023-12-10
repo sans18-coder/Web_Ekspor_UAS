@@ -1,9 +1,8 @@
-    <div class="d-flex" style="min-height: 506px;">
+    <div class="bg-login d-flex" style="min-height: 646px;">
         <!-- untuk Image -->
-
         <!-- form login -->
         <div class="ms-auto me-5 mt-auto mb-auto ">
-            <form class="user card border border-1 rounded-4 p-4 pt-3" action="<?= base_url('Autentifikasi'); ?>" method="post">
+            <form class="user bg-card card rounded-4 p-4 pt-3" action="<?= base_url('Autentifikasi'); ?>" method="post">
                 <h1 class="text-center mb-0 mt-0 ">LOGIN</h1>
                 <hr class="border border-black border-1 opacity-100 mt-0 ms-auto me-auto col-4">
                 <?= $this->session->flashdata('pesan'); ?>
