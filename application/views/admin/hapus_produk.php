@@ -22,7 +22,7 @@
                     foreach ($produk as $p) { ?>
                         <tr>
                             <td>
-                                <a href="<?= base_url('products/hapusProduk/') . $p['productId']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . ' ' . $p['productName']; ?> ?');" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a href="<?= base_url('products/hapusProduk/') . $p['productId']; ?>" onclick="return confirm('Kamu yakin akan menghapus produk <?= $p['productName']; ?> ?');" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </td>
                             <th scope="row"><?= $a++; ?></th>
                             <td><?= $p['productName']; ?></td>
@@ -33,8 +33,8 @@
                                 </picture>
                             </td>
                             <td><?= $p['productDes']; ?></td>
-                            <td><?= $p['price']; ?></td>
-                            <td><?= $p['minOrder']; ?> Ton</td>
+                            <td>$ <?= $p['price']; ?></td>
+                            <td><?= $p['minOrder']; ?> Kg</td>
                         </tr>
                     <?php } ?>
                 </tbody>
