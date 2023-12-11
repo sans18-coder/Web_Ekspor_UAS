@@ -46,6 +46,13 @@ class Products extends CI_Controller
         ];
         $this->ModelProduct->simpanProducts($data);
         redirect('admin/tambahProduk');
-        }
-   
+    }
+    
+    public function hapusProduk() 
+    { 
+        $where = ['productId' => $this->uri->segment(3)]; 
+        $this->ModelProduct->hapusProducts($where); 
+        redirect('admin/hapusProduk'); 
+    }
+
 }
