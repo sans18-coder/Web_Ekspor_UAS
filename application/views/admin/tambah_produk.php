@@ -29,8 +29,8 @@
                                 </picture>
                             </td>
                             <td><?= $p['productDes']; ?></td>
-                            <td><?= $p['price']; ?></td>
-                            <td><?= $p['minOrder']; ?> Ton</td>
+                            <td>$ <?= $p['price']; ?></td>
+                            <td><?= $p['minOrder']; ?> Kg</td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -54,16 +54,17 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('buku'); ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('products/tambahProduk'); ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukan Nama Produk">
                     </div>
-
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="deskripsi_produk" name="pdeskripsi_produk" placeholder="Masukan Deskripsi Produk">
+                        <textarea class="form-control form-control-user" id="deskripsi_produk" name="deskripsi_produk" placeholder="Masukan Deskripsi Produk"></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="harga_produk" name="harga_produk" placeholder="Masukan Harga Produk">
+                    </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukan Minimal Order Produk">
                     </div>
