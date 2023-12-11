@@ -2,74 +2,50 @@
 defined('BASEPATH') or exit('no direct script access allowed');
 class Products extends CI_Controller
 {
-
-    public function index()
+    public function tambahProduk()
     {
-        $data['judul'] = 'Product';
-        $this->load->view('temp/header_login_regis', $data);
-        $this->load->view('user/product', $data);
-        $this->load->view('temp/footer', $data);
-    }
+        $data['judul'] = 'Tambah Produk';
+        $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
+        $data['produk'] = $this->ModelProduct->getProducts()->result_array();
+        $data['role'] = 'admin';
+        $this->form_validation->set_rules('productName', 'Nama Produk', 'required', [
+            'required' => 'Nama Produk harus diisi',
+        ]);
+        $this->form_validation->set_rules('productDes', 'Deskripsi Produk', 'required', [
+            'required' => 'Deskripsi Produk harus diisi',
+        ]);
+        $this->form_validation->set_rules('price', 'Harga Produk', 'required', [
+            'required' => 'Harga produk harus diisi',
+        ]);
+        $this->form_validation->set_rules('minOrder', 'Minimal Order', 'required', [
+            'required' => 'Minimal order  harus diisi',
+        ]);
+        
+        //konfigurasi sebelum gambar diupload
+        $config['upload_path'] = './asset/image/product/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '40290000';
+        $config['max_width'] = '10000';
+        $config['max_height'] = '10000';
+        $config['file_name'] = 'img' . time();
+        $this->load->library('upload', $config);
 
-    public function tambah_produk()
-    {
-        $data['judul'] = 'Dashboard';
-        $this->load->view('temp/header', $data);
-        $this->load->view('temp/sidebar_admin', $data);
-        $this->load->view('temp/topbar', $data);
-        $this->load->view('admin/tambah_produk', $data);
-        $this->load->view('temp/footer');
-    }
-
-    public function hapus_produk()
-    {
-        $data['judul'] = 'Dashboard';
-        $this->load->view('temp/header', $data);
-        $this->load->view('temp/sidebar_admin', $data);
-        $this->load->view('temp/topbar', $data);
-        $this->load->view('admin/hapus_produk', $data);
-        $this->load->view('temp/footer');
-    }
-
-    public function login()
-    {
-        $data['judul'] = 'Login';
-        $this->load->view('temp/header_login_regis', $data);
-        $this->load->view('autentifikasi/login', $data);
-        $this->load->view('temp/footer', $data);
-    }
-
-    public function register()
-    {
-        $data['judul'] = 'Registrasi';
-        $this->load->view('temp/header_login_regis', $data);
-        $this->load->view('autentifikasi/register', $data);
-        $this->load->view('temp/footer', $data);
-    }
-
-    public function product()
-    {
-        $data['judul'] = 'Product';
-        $this->load->view('temp/header_user', $data);
-        $this->load->view('user/product', $data);
-        $this->load->view('temp/footer', $data);
-    }
-
-    public function buy()
-    {
-        $data['judul'] = 'Orders';
-        $this->load->view('temp/header', $data);
-        $this->load->view('temp/sidebar', $data);
-        $this->load->view('temp/topbar', $data);
-        $this->load->view('user/index', $data);
-        $this->load->view('temp/footer');
-    }
-
-    public function submission()
-    {
-        $data['judul'] = 'Product';
-        $this->load->view('temp/header_user', $data);
-        $this->load->view('user/submission', $data);
-        $this->load->view('temp/footer', $data);
-    }
+        if ($this->upload->do_upload('foto_produk')) {
+            $image = $this->upload->data();
+            $gambar = $image['file_name'];
+        } else {
+            $gambar = 'gagal';
+        }
+        $data = [
+            'productName' => $this->input->post('nama_produk', true),
+            'productDes' => $this->input->post('deskripsi_produk', true),
+            'price' => $this->input->post('harga_produk', true),
+            'minOrder' => $this->input->post('minimal_order', true),
+        
+            'productImage' => $gambar
+        ];
+        $this->ModelProduct->simpanProducts($data);
+        redirect('admin/tambahProduk');
+        }
+   
 }
