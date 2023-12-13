@@ -32,8 +32,8 @@ class ModelChart extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('cart');
-        $this->db->join('users', 'users.userId = cart.cartId', 'inner');
-        $this->db->join('products', 'products.productId = cart.cartId', 'inner');
+        $this->db->join('users', 'users.userId = cart.userId', 'inner');
+        $this->db->join('products', 'products.productId = cart.productId', 'inner');
         $this->db->where($where);
         return $this->db->get();
     }

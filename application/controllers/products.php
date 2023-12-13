@@ -1,4 +1,4 @@
-<?php
+g<?php
 defined('BASEPATH') or exit('no direct script access allowed');
 class Products extends CI_Controller
 {
@@ -40,8 +40,7 @@ class Products extends CI_Controller
             'productName' => $this->input->post('nama_produk', true),
             'productDes' => $this->input->post('deskripsi_produk', true),
             'price' => $this->input->post('harga_produk', true),
-            'minOrder' => $this->input->post('minimal_order', true),
-        
+            'minOrder' => $this->input->post('minimal_order', true),  
             'productImage' => $gambar
         ];
         $this->ModelProduct->simpanProducts($data);
@@ -51,8 +50,8 @@ class Products extends CI_Controller
     public function hapusProduk() 
     { 
         $where = ['productId' => $this->uri->segment(3)]; 
-        $this->ModelProduct->hapusProducts($where); 
+        $this->ModelChart->hapusCart($where); 
         redirect('admin/hapusProduk'); 
     }
-
+    
 }

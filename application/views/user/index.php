@@ -48,8 +48,8 @@
                         <p class="shop-desc">Min.Order : <?= $p['minOrder']; ?> Kg</p>
                     </div>
                     <div class="d-flex">
-                        <button class="button" data-toggle="modal" data-target="#orderProduct">Pre-Orders</button>
-                        <button class="button fas fa-cart-plus" data-toggle="modal" data-target="#addToCart"></button>
+                        <button class="button" data-toggle="modal" data-target="#orderProduct<?= $p['productId'] ?>">Pre-Orders</button>
+                        <button class="button fas fa-cart-plus" data-toggle="modal" data-target="#addToCart<?= $p['productId'] ?>"></button>
                     </div>
                 </div>
             </div>
@@ -58,76 +58,105 @@
 </div>
 </div>
 <!-- popup order-->
-<div class="modal fade" id="orderProduct" tabindex="-1" role="dialog" aria-labelledby="orderProductKopi" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bukuBaruModalLabel"><span class="fas fa-shopping-cart me-1"></span>Order Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<?php foreach ($products as $p) { ?>
+    <div class="modal fade" id="orderProduct<?= $p['productId'] ?>" tabindex="-1" role="dialog" aria-labelledby="orderProductKopi" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bukuBaruModalLabel"><span class="fas fa-shopping-cart me-1"></span>Order Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url('order'); ?>" method="post" enctype="multipart/form-data">
+                    <div class="modal-body d-flex">
+                        <div class="image-order col-6">
+                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="">
+                        </div>
+                        <div class="des-order col-6">
+                            <div class="form-group">
+                                <h4><?= $p['productName']; ?></h4>
+                                <input type="hidden" class="form-control" id="productId" name="productId" value="<?= $p['productId']; ?>">
+                                <input type="hidden" class="form-control" id="userId" name="userId" value="<?= $user['userId']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <h5>description</h5>
+                                <p><?= $p['productDes'] ?></p>
+                            </div>
+                            <div class="form-group">
+                                <h5>Price : $<?= $p['price']; ?>/Kg</h5>
+                                <input type="hidden" class="form-control" id="priceProduct" name="priceProduct" value="<?= $p['price']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <h5>quantity</h5>
+                                <div class="d-flex">
+                                    <button type="button" id="kurangQty">-</button>
+                                    <input type="number" id="quantity" name="quantity" min="500" value="500" oninput="hitungTotal()">
+                                    <button type="button" id="tambahQty">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label for="total">Total : $</label>
+                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" readonly>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
+                    </div>
+                </form>
             </div>
-            <form action="<?= base_url('buku'); ?>" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukan Nama Produk">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="deskripsi_produk" name="pdeskripsi_produk" placeholder="Masukan Deskripsi Produk">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukan Minimal Order Produk">
-                    </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control form-control-user" id="foto_produk" name="foto_produk" placeholder="Masukan Foto Produk">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Tutup</button>
-                    <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-<!-- End of Modal Tambah Mneu -->
+<?php } ?>
+
+<!-- End of popup order-->
 <!-- popup add Cart -->
-<div class="modal fade" id="addToCart" tabindex="-1" role="dialog" aria-labelledby="addCartKopi" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bukuBaruModalLabel"><span class="fas fa-cart-plus me-1"></span>Add To Cart</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<?php foreach ($products as $p) { ?>
+    <div class="modal fade" id="addToCart<?= $p['productId'] ?>" tabindex="-1" role="dialog" aria-labelledby="addCartKopi" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bukuBaruModalLabel"><span class="fas fa-cart-plus me-1"></span>Add To Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?= base_url('cart'); ?>" method="post" enctype="multipart/form-data">
+                    <div class="modal-body d-flex">
+                        <div class="image-order col-6">
+                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="" style="max-width: 150px;">
+                        </div>
+                        <div class="des-order col-6">
+                            <div class="form-group">
+                                <h4><?= $p['productName']; ?></h4>
+                                <input type="hidden" class="form-control" id="productId" name="productId" value="<?= $p['productId']; ?>">
+                                <input type="hidden" class="form-control" id="userId" name="userId" value="<?= $user['userId']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <h5>description</h5>
+                                <p><?= $p['productDes'] ?></p>
+                            </div>
+                            <div class="form-group">
+                                <h5>Price : $<?= $p['price']; ?>/Kg</h5>
+                                <input type="hidden" class="form-control" id="priceProduct" name="priceProduct" value="<?= $p['price']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <h5>quantity</h5>
+                                <div class="d-flex">
+                                    <button type="button" id="kurangQty">-</button>
+                                    <input type="number" id="quantity" name="quantity" min="500" value="500" oninput="hitungTotal()">
+                                    <button type="button" id="tambahQty">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <label for="total">Total : $</label>
+                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" readonly>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
+                    </div>
+                </form>
             </div>
-            <form action="<?= base_url('buku'); ?>" method="post" enctype="multipart/form-data">
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukan Nama Produk">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="deskripsi_produk" name="pdeskripsi_produk" placeholder="Masukan Deskripsi Produk">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukan Minimal Order Produk">
-                    </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control form-control-user" id="foto_produk" name="foto_produk" placeholder="Masukan Foto Produk">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Tutup</button>
-                    <button type="submit" class="btn btn-primary"><span class="fas fa-cart-plus"></span> Add To Cart</button>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-<!-- End of Modal Tambah Mneu -->
+<?php } ?>
+<!-- End of Modal add to cart-->

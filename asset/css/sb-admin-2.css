@@ -351,6 +351,7 @@ progress {
 [type="search"] {
 	outline-offset: -2px;
 	-webkit-appearance: none;
+	
 }
 
 [type="search"]::-webkit-search-decoration {
@@ -6193,7 +6194,7 @@ a.close.disabled {
 
 @media (min-width: 576px) {
 	.modal-dialog {
-		max-width: 500px;
+		max-width: 800px;
 		margin: 1.75rem auto;
 	}
 	.modal-dialog-scrollable {
@@ -6210,7 +6211,7 @@ a.close.disabled {
 		height: -webkit-min-content;
 		height: -moz-min-content;
 		height: min-content;
-	}
+	}  
 	.modal-sm {
 		max-width: 300px;
 	}

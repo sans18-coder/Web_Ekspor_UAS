@@ -79,7 +79,9 @@ class User extends CI_Controller
     public function cart()
     {
         $data['judul'] = 'Cart';
-        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $user;
+        $data['cart'] = $this->ModelChart->joinUserCartProduct(['cart.userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -91,7 +93,9 @@ class User extends CI_Controller
     public function submission()
     {
         $data['judul'] = 'Submission in Process';
-        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $user;
+        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -103,7 +107,9 @@ class User extends CI_Controller
     public function accepted()
     {
         $data['judul'] = 'Submission is accepted';
-        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $user;
+        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -115,7 +121,9 @@ class User extends CI_Controller
     public function history()
     {
         $data['judul'] = 'History';
-        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $user;
+        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -124,13 +132,14 @@ class User extends CI_Controller
         $this->load->view('user/history', $data);
         $this->load->view('temp/footer');
     }
-    public function produk(){
+    public function produk()
+    {
         $data['judul'] = 'Product';
         $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = 'user';
-            $this->load->view('temp/header_user', $data);
-            $this->load->view('user/product');
-            $this->load->view('temp/footer');
+        $this->load->view('temp/header_user', $data);
+        $this->load->view('user/product');
+        $this->load->view('temp/footer');
     }
     public function logout()
     {

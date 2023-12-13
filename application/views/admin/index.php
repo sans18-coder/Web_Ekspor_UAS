@@ -22,8 +22,6 @@
                         <th>Qty yang disanggupi</th>
                         <th>Status Pembayaran</th>
                         <th>Prposal</th>
-                        
-
         
                     </tr>
                 </thead>

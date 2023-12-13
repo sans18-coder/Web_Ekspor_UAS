@@ -52,12 +52,12 @@ class ModelOrders extends CI_Model
         return $this->db->get('detail_orders');
     }
 
-    public function DetailOrdersWhere($where)
+    public function detailOrdersWhere($where)
     {
         return $this->db->get_where('detail_orders', $where);
     }
 
-    public function simpanDetailOrderss($data = null)
+    public function simpanDetailOrders($data = null)
     {
         $this->db->insert('detail_orders', $data);
     }
@@ -72,12 +72,23 @@ class ModelOrders extends CI_Model
         $this->db->update('detail_orders', $data, $where);
     }
     public function joinOrdersDetailProduct($where)
-{
-    $this->db->select('*');
-    $this->db->from('detail_orders');
-    $this->db->join('orders', 'orders.orderId = detail_orders.detailId','inner');
-    $this->db->join('products', 'products.productId = detail_orders.detailId','inner');
-    $this->db->where($where);
-    return $this->db->get();
-}
+    {
+        $this->db->select('*');
+        $this->db->from('detail_orders');
+        $this->db->join('orders', 'orders.orderId = detail_orders.orderId', 'inner');
+        $this->db->join('products', 'products.productId = detail_orders.productId', 'inner');
+        $this->db->where($where);
+        return $this->db->get();
+    }
+    public function getOrderByLastUser($userId)
+    {
+        $this->db->select('*');
+        $this->db->from('orders');
+        $this->db->where('userId', $userId);
+        $this->db->order_by('orderId', 'DESC');
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+        return $query->row('orderId');
+    }
 }

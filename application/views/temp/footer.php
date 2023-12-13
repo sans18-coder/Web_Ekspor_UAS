@@ -36,6 +36,45 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('tambahQty').addEventListener('click', function() {
+        tambahQty();
+    });
+
+    document.getElementById('kurangQty').addEventListener('click', function() {
+        kurangQty();
+    });
+
+    function tambahQty() {
+        let quantity = parseInt(document.getElementById("quantity"));
+        let currentValue = parseInt(quantity.value);
+        quantity.value = currentValue + 1;
+        hitungTotal(); // Panggil fungsi hitungTotal setiap kali tombol tambah diklik
+    }
+
+    function kurangQty() {
+        let quantity = parseInt(document.getElementById("quantity"));
+        let currentValue = parseInt(quantity.value);
+        if (currentValue > 500) {
+            quantity.value = currentValue - 1;
+            hitungTotal(); // Panggil fungsi hitungTotal setiap kali tombol kurang diklik
+        }
+    }
+
+    function hitungTotal() {
+        // Ambil nilai kuantitas dan harga per item
+        let quantity = parseFloat(document.getElementsById("quantity").value);
+        let harga = parseFloat(document.getElementsById("priceProduct").value);
+
+        // Hitung jumlah total
+        let total = quantity * harga;
+
+        // Masukkan jumlah total ke dalam input total
+        document.getElementById("total").value = total.toFixed(2); // Tampilkan total dengan 2 digit desimal
+    }
+</script>
+
 <script src="<?php echo base_url(); ?>asset/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Bootstrap core JavaScript-->
@@ -58,6 +97,36 @@
 <!-- swiper js -->
 <script src="<?php echo base_url(); ?>asset/js/swiper-bundle.min.js"></script>
 <script src="<?php echo base_url(); ?>asset/js/script.js"></script>
+<script>
+    function tambahQty() {
+        let quantity = document.getElementById("quantity");
+        let currentValue = parseInt(quantity.value);
+        quantity.value = currentValue + 1;
+        console.log
+        hitungTotal(); // Panggil fungsi hitungTotal setiap kali tombol tambah diklik
+    }
+
+    function kurangQty() {
+        let quantity = document.getElementById("quantity");
+        let currentValue = parseInt(quantity.value);
+        if (currentValue > 500) {
+            quantity.value = currentValue - 1;
+            hitungTotal(); // Panggil fungsi hitungTotal setiap kali tombol kurang diklik
+        }
+    }
+
+    function hitungTotal() {
+        // Ambil nilai kuantitas dan harga per item
+        let quantity = parseFloat(document.getElementById("quantity").value);
+        let harga = parseFloat(document.getElementById("priceProduct").value);
+
+        // Hitung jumlah total
+        let total = quantity * harga;
+
+        // Masukkan jumlah total ke dalam input total
+        document.getElementById("total").value = total.toFixed(2); // Tampilkan total dengan 2 digit desimal
+    }
+</script>
 </body>
 
 </html>
