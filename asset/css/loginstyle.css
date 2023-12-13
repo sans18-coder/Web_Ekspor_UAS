@@ -1,22 +1,35 @@
-
-.bg-login{
-    background-image: url("../image/gambarkopi.jpg");
-    background-size: cover;
+.bg-login {
+	background-image: url("../image/gambarkopi.jpg");
+	background-size: cover;
 }
-.bg-card{
-    background-color: rgba(255, 255, 255, 0.527);
+.judul {
+	font-size: 90px;
 }
-.navbar{
-    background-color:rgba(255, 255, 255, 0.527);
+.putih {
+	color: white;
 }
-.bg-register{
-    background-image: url("../image/gambarkopi.jpg");
-    background-size: cover;
+.coklat {
+	color: rgb(164, 68, 0);
 }
-.bg-admin{
-    background-image: url("../image/gambarkopi.jpg");
-    background-size: cover;
+.produk-content {
+	background-image: url("../image/gambarkopi.jpg");
+	background-size: cover;
+	height: 500px;
 }
-.card-admin{
-    background-color: rgba(255, 255, 255, 0.527);
+.bg-card {
+	background-color: rgba(255, 255, 255, 0.527);
+}
+.navbar {
+	background-color: rgba(255, 255, 255, 0.527);
+}
+.bg-register {
+	background-image: url("../image/gambarkopi.jpg");
+	background-size: cover;
+}
+.bg-admin {
+	background-image: url("../image/gambarkopi.jpg");
+	background-size: cover;
+}
+.card-admin {
+	background-color: rgba(255, 255, 255, 0.527);
 }

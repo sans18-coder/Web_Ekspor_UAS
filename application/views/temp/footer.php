@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-transparent">
     <div class="container my-auto">
         <div class="copyright text-center my-auto ">
             <span class="text-dark">Lokal Coffee &copy; Web Programming II Kelompok IV <?= date('Y'); ?></span>
