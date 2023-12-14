@@ -33,7 +33,7 @@
                                 </picture>
                             </td>
                             <td><?= $p['productDes']; ?></td>
-                            <td>$ <?= $p['price']; ?></td>
+                            <td>$<?= $p['price']; ?></td>
                             <td><?= $p['minOrder']; ?> Kg</td>
                         </tr>
                     <?php } ?>

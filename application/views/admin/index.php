@@ -21,7 +21,7 @@
                         <th>Status Pengajuan</th>
                         <th>Qty yang disanggupi</th>
                         <th>Status Pembayaran</th>
-                        <th>Prposal</th>
+                        <th>Proposal</th>
         
                     </tr>
                 </thead>

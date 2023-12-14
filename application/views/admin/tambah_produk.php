@@ -1,9 +1,16 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+<?= $this->session->flashdata('pesan'); ?>
     <div class="row">
         <div class="col-lg-12">
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#bukuBaruModal"><i class="fas fa-plus-square"></i> Tambah Produk</a>
+        <?php if(validation_errors()){?>
+            <div class = "alert alert-danger" role = "alert">
+                <?= validation_errors();?>
+            </div>
+            <?php }?>
+            <?= $this->session->flashdata('pesan'); ?>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahProduk"><i class="fas fa-plus-square"></i> Tambah Produk</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -29,7 +36,7 @@
                                 </picture>
                             </td>
                             <td><?= $p['productDes']; ?></td>
-                            <td>$ <?= $p['price']; ?></td>
+                            <td>$<?= $p['price']; ?></td>
                             <td><?= $p['minOrder']; ?> Kg</td>
                         </tr>
                     <?php } ?>
@@ -45,11 +52,11 @@
 <!-- End of Main Content -->
 
 <!-- Modal Tambah Produk-->
-<div class="modal fade" id="bukuBaruModal" tabindex="-1" role="dialog" aria-labelledby="bukuBaruModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahProduk" tabindex="-1" role="dialog" aria-labelledby="tambahProduk" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="bukuBaruModalLabel">Tambah Produk</h5>
+                <h5 class="modal-title" id="tambahProduk">Tambah Produk</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -57,19 +64,19 @@
             <form action="<?= base_url('products/tambahProduk'); ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukan Nama Produk">
+                        <input type="text" class="form-control form-control-user" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control form-control-user" id="deskripsi_produk" name="deskripsi_produk" placeholder="Masukan Deskripsi Produk"></textarea>
+                        <textarea class="form-control form-control-user" id="deskripsi_produk" name="deskripsi_produk" placeholder="Masukkan Deskripsi Produk"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="harga_produk" name="harga_produk" placeholder="Masukan Harga Produk">
+                        <input type="text" class="form-control form-control-user" id="harga_produk" name="harga_produk" placeholder="Masukkan Harga Produk">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukan Minimal Order Produk">
+                        <input type="text" class="form-control form-control-user" id="minimal_order" name="minimal_order" placeholder="Masukkan Minimal Order Produk">
                     </div>
                     <div class="form-group">
-                        <input type="file" class="form-control form-control-user" id="foto_produk" name="foto_produk" placeholder="Masukan Foto Produk">
+                        <input type="file" class="form-control form-control-user" id="foto_produk" name="foto_produk">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -80,4 +87,4 @@
         </div>
     </div>
 </div>
-<!-- End of Modal Tambah Mneu -->
+<!-- End of Modal Tambah Produk -->
