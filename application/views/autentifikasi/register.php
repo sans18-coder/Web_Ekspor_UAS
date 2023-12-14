@@ -1,4 +1,4 @@
-<div class="bg-register" style="min-height: 606px;">
+<div class="bg-register" style="min-height: 749px;">
 <!-- form Register -->
 <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-center pt-5 pb-4" style="min-height: 650px;">

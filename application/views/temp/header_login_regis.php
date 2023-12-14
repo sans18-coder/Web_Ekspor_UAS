@@ -24,13 +24,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav nav-underline ms-auto pe-4 fw-bold">
                             <li class="nav-item ps-3">
-                                <a class="nav-link " aria-current="page" href="<?php echo base_url(); ?>">PRODUCT</a>
+                                <a class="nav-link " aria-current="page" href="<?php echo  base_url('tampilan/product');; ?>">PRODUCT</a>
                             </li>
                             <li class="nav-item ps-3">
-                                <a class="nav-link" href="<?php echo base_url() . 'index.php/tampilan/login'; ?>">LOGIN</a>
+                                <a class="nav-link" href="<?php echo base_url(); ?>">LOGIN</a>
                             </li>
                             <li class="nav-item ps-3">
-                                <a class="nav-link" href="<?php echo base_url() . 'index.php/tampilan/register'; ?>">REGISTRASI</a>
+                                <a class="nav-link" href="<?php echo base_url('tampilan/register'); ?>">REGISTRASI</a>
                             </li>
                         </ul>
                     </div>

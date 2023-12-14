@@ -18,9 +18,11 @@ class ModelOrders extends CI_Model
         $this->db->insert('orders', $data);
     }
 
-    public  function updateOrders($data = null, $where = null)
+    public  function updateOrders($field1, $value1, $field2, $value2)
     {
-        $this->db->update('orders', $data, $where);
+        $this->db->set($field1, $value1);
+        $this->db->where($field2, $value2);
+        $this->db->update('orders');
     }
 
     public  function hapusOrders($where = null)
@@ -67,9 +69,11 @@ class ModelOrders extends CI_Model
         $this->db->delete('detail_orders', $where);
     }
 
-    public function updateDetailOrders($where = null, $data = null)
+    public function updateDetailOrders($field1, $value1, $field2, $value2)
     {
-        $this->db->update('detail_orders', $data, $where);
+        $this->db->set($field1, $value1);
+        $this->db->where($field2, $value2);
+        $this->db->update('detail_orders');
     }
     public function joinOrdersDetailProduct($where)
     {

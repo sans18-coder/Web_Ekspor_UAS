@@ -2,11 +2,11 @@
 defined('BASEPATH') or exit('no direct script access allowed');
 class Admin extends CI_Controller
 {
-    // function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->load->helper('url');
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('form_validation');
+    }
 
     public function index()
     {
@@ -45,8 +45,9 @@ class Admin extends CI_Controller
     {
         $data['judul'] = 'Dasboard Admin';
         $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
-        $data['order'] = $this->ModelOrders->getOrders()->result_array();
         $data['role'] = 'admin';
+        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.statusPengajuan' => 0])->result_array();
+        $data['user'] = $this->ModelUser->getUser()->result_array();
 
         $this->load->view('temp/header', $data);
         $this->load->view('temp/sidebar_admin', $data);
@@ -60,6 +61,7 @@ class Admin extends CI_Controller
         $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
         $data['order'] = $this->ModelOrders->getOrders()->result_array();
         $data['role'] = 'admin';
+        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.statusPengajuan' => 1])->result_array();
 
         $this->load->view('temp/header', $data);
         $this->load->view('temp/sidebar_admin', $data);
@@ -105,5 +107,32 @@ class Admin extends CI_Controller
         $this->load->view('temp/topbar', $data);
         $this->load->view('admin/update_produk', $data);
         $this->load->view('temp/footer');
+    }
+    public function accPengajuan()
+    {
+        $where = htmlspecialchars($this->input->post('orderId'));
+        $qtyDisanggupi = htmlspecialchars($this->input->post('qtyDisanggupi'));
+        $this->ModelOrders->updateDetailOrders('quantityDisetujui', $qtyDisanggupi, 'orderId', $where);
+        $this->ModelOrders->updateOrders('statusPengajuan', 1, 'orderId', $where);
+
+        redirect('Admin/dasboard');
+    }
+    public function batalPengajuan()
+    {
+        $where = htmlspecialchars($this->input->post('orderId'));
+        $this->ModelOrders->updateOrders('statusPengajuan', 0, 'orderId', $where);
+        redirect('Admin/accepted');
+    }
+    public function lunasPembayaran()
+    {
+        $where = htmlspecialchars($this->input->post('orderId'));
+        $this->ModelOrders->updateOrders('paymentStatus', 1, 'orderId', $where);
+        redirect('Admin/accepted');
+    }
+    public function batalLunasPembayaran()
+    {
+        $where = htmlspecialchars($this->input->post('orderId'));
+        $this->ModelOrders->updateOrders('paymentStatus', 0, 'orderId', $where);
+        redirect('Admin/accepted');
     }
 }

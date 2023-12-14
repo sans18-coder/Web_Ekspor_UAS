@@ -1,4 +1,4 @@
-<div class="bg-admin d-flex" style="min-height: 646px;">
+<div class="bg-admin d-flex" style="min-height: 749px;">
     <!-- untuk Image -->
     <!-- form login -->
     <div class="ms-auto me-5 mt-auto mb-auto ">

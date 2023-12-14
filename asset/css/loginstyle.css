@@ -19,6 +19,9 @@
 .bg-card {
 	background-color: rgba(255, 255, 255, 0.527);
 }
+.navbar-dark {
+	background-color: rgba(104, 104, 104, 0.344);
+}
 .navbar {
 	background-color: rgba(255, 255, 255, 0.527);
 }

@@ -76,8 +76,6 @@ class Autentifikasi extends CI_Controller
         if ($this->session->userdata('email')) {
             redirect('user');
         }
-        //membuat rule untuk inputan nama agar tidak boleh kosong dengan membuat pesan error dengan 
-        //bahasa sendiri yaitu 'Nama Belum diisi'
         $this->form_validation->set_rules(
             'name',
             'Nama Lengkap',
@@ -102,12 +100,6 @@ class Autentifikasi extends CI_Controller
                 'required' => "nationality hasn't been entered!!"
             ]
         );
-        //membuat rule untuk inputan email agar tidak boleh kosong, tidak ada spasi, format email harus valid
-        //dan email belum pernah dipakai sama user lain dengan membuat pesan error dengan bahasa sendiri 
-        //yaitu jika format email tidak benar maka pesannya 'Email Tidak Benar!!'. jika email belum diisi,
-        //maka pesannya adalah 'Email Belum diisi', dan jika email yang diinput sudah dipakai user lain,
-        //maka pesannya 'Email Sudah dipakai'
-
         $this->form_validation->set_rules(
             'email',
             'Alamat Email',
@@ -127,11 +119,7 @@ class Autentifikasi extends CI_Controller
                 'min_length' => 'Phone Number is too short'
             ]
         );
-        //membuat rule untuk inputan password agar tidak boleh kosong, tidak ada spasi, tidak boleh kurang dari
-        //dari 3 digit, dan password harus sama dengan repeat password dengan membuat pesan error dengan 
-        //bahasa sendiri yaitu jika password dan repeat password tidak diinput sama, maka pesannya
-        //'Password Tidak Sama'. jika password diisi kurang dari 3 digit, maka pesannya adalah 
-        //'Password Terlalu Pendek'.
+
         $this->form_validation->set_rules(
             'password',
             'Password',
@@ -147,9 +135,7 @@ class Autentifikasi extends CI_Controller
             'Repeat Password',
             'required|trim|matches[password]'
         );
-        //jika jida disubmit kemudian validasi form diatas tidak berjalan, maka akan tetap berada di
-        //tampilan registrasi. tapi jika disubmit kemudian validasi form diatas berjalan, maka data yang 
-        //diinput akan disimpan ke dalam tabel user
+
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Registrasi Member';
             $this->load->view('temp/header_login_regis', $data);

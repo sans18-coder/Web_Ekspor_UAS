@@ -18,7 +18,6 @@
                             <th scope="col" class="text-center">Aceptable of Quantity</th>
                             <th scope="col" class="text-center">Status Pengajuan</th>
                             <th scope="col" class="text-center">Payment Status</th>
-                            <th scope="col" class="text-center">Proposal</th>
                         </tr>
                     </thead>
                     <tbody>

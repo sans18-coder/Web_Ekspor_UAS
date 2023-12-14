@@ -139,7 +139,7 @@ class User extends CI_Controller
         $data['produk'] = $this->ModelProduct->getProducts()->result_array();
         $data['role'] = 'user';
         $this->load->view('temp/header_user', $data);
-        $this->load->view('user/product');
+        $this->load->view('user/product', $data);
         $this->load->view('temp/footer');
     }
     public function logout()
