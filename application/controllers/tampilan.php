@@ -19,6 +19,8 @@ class Tampilan extends CI_Controller
         $this->load->view('temp/footer');
     }
 
-
-
+    public function blok()
+    {
+        $this->load->view('autentifikasi/blok');
+    }
 }
