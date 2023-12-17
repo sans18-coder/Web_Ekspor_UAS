@@ -62,12 +62,16 @@
                                 </form>
                             <?php } ?>
                         </td>
-                        <form action="<?= base_url('admin/accPengajuan')  ?>" method="post">
-                            <input type="hidden" name="orderId" value="<?= $o['orderId'] ?>">
-                            <td class="text-center align-middle">
+                        <td class="text-center align-middle">
+                            <form action="<?= base_url('admin/accPengajuan')  ?>" method="post">
+                                <input type="hidden" name="orderId" value="<?= $o['orderId'] ?>">
                                 <button class="btn btn-success fs-6 mb-2"><span class="fas fa-check-circle"></span>Setujui</button>
-                            </td>
-                        </form>
+                            </form>
+                            <form action="<?= base_url('admin/tolakPengajuan')  ?>" method="post">
+                                <input type="hidden" name="orderId" value="<?= $o['orderId'] ?>">
+                                <button class="btn btn-danger fs-6 mb-2"> <span class="fas fa-times-circle"></span> Tolak</button>
+                            </form>
+                        </td>
 
                         <td class="text-center align-middle">
                             <p class='badge badge-danger fs-6 mb-2'>Belum Lunas</p>
