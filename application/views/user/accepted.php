@@ -18,36 +18,65 @@
                             <th scope="col" class="text-center">Aceptable of Quantity</th>
                             <th scope="col" class="text-center">Status Pengajuan</th>
                             <th scope="col" class="text-center">Payment Status</th>
+                            <th scope="col" class="text-center">Order received</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $a = 1;
                         foreach ($order as $o) {
-                            if (($o['statusPengajuan'] == 1) &&  ($o['paymentStatus'] == 0)) { ?>
+                            if ($o['statusPengajuan'] == 1) { ?>
                                 <tr>
                                     <th scope="row" class="text-center"><?= $a++; ?></th>
-                                    <td><?= $o['productName']; ?></td>
-                                    <td class="text-center">$<?= $o['price']; ?></td>
-                                    <td class="text-center"><?= $o['quantity']; ?></td>
-                                    <td class="text-center">
-                                        <?php if ($o['quantityDisetujui'] == 0) {
-                                            echo "<span>Awaiting approval<span>";
-                                        } else {
-                                            echo "<span>" . $o['quantityDisetujui'] . "<span>";
-                                        }; ?></td>
-                                    <td class="text-center"><?= $o['quantity'] * $o['price']; ?></td>
-                                    <td class="text-center">
+                                    <?php $detail = $this->ModelOrders->detailOrdersWhere(['orderId' => $o['orderId']])->result_array(); ?>
+                                    <td><?php foreach ($detail as $d) {
+                                            $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                            foreach ($detail_product as $d) {
+                                                echo '<p>' . $d['productName'] . '</p>';
+                                            }
+                                        } ?></td>
+                                    <td class="text-center"><?php foreach ($detail as $d) {
+                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                                                foreach ($detail_product as $dp) {
+                                                                    echo '<p>' . $dp['price'] . '</p>';
+                                                                }
+                                                            } ?></td>
+                                    <td class="text-center"><?php foreach ($detail as $d) {
+                                                                echo '<p>' . $d['quantity'] . '</p>';
+                                                            } ?></td>
+                                    <td class="text-center"><?php foreach ($detail as $d) {
+                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                                                foreach ($detail_product as $dp) {
+                                                                    echo '<p>' . $d['quantity'] * $dp['price'] . '</p>';
+                                                                }
+                                                            } ?></td>
+                                    <td class="text-center"><?php foreach ($detail as $d) {
+                                                                if ($d['quantityDisetujui'] == 0) {
+                                                                    echo "<p class='badge badge-secondary fs-6'>Awaiting approval</p><br>";
+                                                                } else {
+                                                                    echo "</p>" . $d['quantityDisetujui'] . "</p>";
+                                                                };
+                                                            } ?></td>
+                                    <td class="text-center align-middle">
                                         <?php if ($o['statusPengajuan'] == 1) {
-                                            echo "<span>Approved<span>";
+                                            echo "<span class='badge badge-success fs-6'>Approved<span>";
                                         }; ?>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-center align-middle">
                                         <?php if ($o['paymentStatus'] == 0) {
-                                            echo "<span>Unpaid<span>";
+                                            echo "<span class='badge badge-danger fs-6'>Unpaid<span>";
+                                        } else {
+                                            echo "<span class='badge badge-success fs-6'>already paid<span>";
                                         }; ?>
                                     </td>
-                                    <td></td>
+                                    <td class="text-center align-middle">
+                                        <form action="<?= base_url('order/terimaOrder') ?>" method="post">
+                                            <input type="hidden" class="form-control" id="ordersId" name="orderId" value="<?= $o['orderId']; ?>">
+                                            <button type="submit" class="border border-0 bg-transparent">
+                                                <span class="badge badge-info fs-6 fas fa-check-circle"> Received</span>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         <?php } ?>

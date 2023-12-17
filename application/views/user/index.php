@@ -11,7 +11,7 @@
                             </div>
                         </div>
                         <div class="description">
-                            <p class="desc text-justify mt-4"><?= $limit_words($p['productDes'], 15); ?> <a href="#">detail</a></p>
+                            <p class="desc text-justify mt-4"><?= $limit_words($p['productDes'], 15); ?> <a href="<?= base_url('user/produk/') . '#' . $p['productId'] ?>">detail</a></p>
                         </div>
                     </div>
                     <div class="card-content">
@@ -43,7 +43,7 @@
                 <div class="shop-card-content">
                     <h2 class="shop-name"><?= $p['productName']; ?></h2>
                     <div class="shop-description">
-                        <p class="shop-desc">Desc: <a href="#">detail</a></p>
+                        <p class="shop-desc">Desc: <a href="<?= base_url('user/produk/') . '#' . $p['productId'] ?>">detail</a></p>
                         <p class="shop-desc">Price: $<?= $p['price']; ?>/Kg</p>
                         <p class="shop-desc">Min.Order : <?= $p['minOrder']; ?> Kg</p>
                     </div>
@@ -70,10 +70,10 @@
                 </div>
                 <form action="<?= base_url('order'); ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body d-flex">
-                        <div class="image-order col-6">
-                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="">
+                        <div class="image-order col-6 d-flex justify-content-center align-items-center">
+                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="" style="max-width: 300px;">
                         </div>
-                        <div class="des-order col-6">
+                        <div class=" des-order col-6">
                             <div class="form-group">
                                 <h4><?= $p['productName']; ?></h4>
                                 <input type="hidden" class="form-control" id="productId" name="productId" value="<?= $p['productId']; ?>">
@@ -90,17 +90,17 @@
                             <div class="form-group">
                                 <h5>quantity</h5>
                                 <div class="d-flex">
-                                    <button type="button" id="kurangQty">-</button>
-                                    <input type="number" id="quantity" name="quantity" min="500" value="500" oninput="hitungTotal()">
-                                    <button type="button" id="tambahQty">+</button>
+                                    <button type="button" id="kurangQty" name="kurangQty" class="btn btn-danger fs-6 me-2"><span class="fas fa-minus "> </span></button>
+                                    <input type="number" id="quantity" name="quantity" min="500" value="500" class="border rounded" oninput="hitungTotal()" style="width: 65px;">
+                                    <button type="button" id="tambahQty" name="tambahQty" class="btn btn-success fs-6 ms-2"><span class="fas fa-plus "> </span></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <label for="total">Total : $</label>
-                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" readonly>
-                        <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
+                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" class="border border-0" style="width: 75px;" readonly>
+                        <button type=" submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
                     </div>
                 </form>
             </div>
@@ -122,8 +122,8 @@
                 </div>
                 <form action="<?= base_url('cart'); ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body d-flex">
-                        <div class="image-order col-6">
-                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="" style="max-width: 150px;">
+                        <div class="image-order col-6 d-flex justify-content-center align-items-center">
+                            <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" alt="" style="max-width: 300px;">
                         </div>
                         <div class="des-order col-6">
                             <div class="form-group">
@@ -142,17 +142,17 @@
                             <div class="form-group">
                                 <h5>quantity</h5>
                                 <div class="d-flex">
-                                    <button type="button" id="kurangQty">-</button>
-                                    <input type="number" id="quantity" name="quantity" min="500" value="500" oninput="hitungTotal()">
-                                    <button type="button" id="tambahQty">+</button>
+                                    <button type="button" id="kurangQty" name="kurangQty" class="btn btn-danger fs-6 me-2"><span class="fas fa-minus "> </span></button>
+                                    <input type="number" id="quantity" name="quantity" min="500" value="500" class="border rounded" oninput="hitungTotal()" style="width: 65px;">
+                                    <button type="button" id="tambahQty" name="tambahQty" class="btn btn-success fs-6 ms-2"><span class="fas fa-plus "> </span></button></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <label for="total">Total : $</label>
-                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" readonly>
-                        <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Order</button>
+                        <input type="number" id="total" name="total" value="<?= $p['price'] * 500 ?>" class="border border-0" style="width: 75px;" readonly>
+                        <button type="submit" class="btn btn-primary"><span class="fas fa-shopping-cart"></span> Add To Cart</button>
                     </div>
                 </form>
             </div>

@@ -95,7 +95,7 @@ class User extends CI_Controller
         $data['judul'] = 'Submission in Process';
         $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         $data['user'] = $user;
-        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
+        $data['order'] = $this->ModelOrders->ordersWhere(['userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -109,7 +109,7 @@ class User extends CI_Controller
         $data['judul'] = 'Submission is accepted';
         $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         $data['user'] = $user;
-        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
+        $data['order'] = $this->ModelOrders->ordersWhere(['userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);
@@ -123,7 +123,7 @@ class User extends CI_Controller
         $data['judul'] = 'History';
         $user =  $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
         $data['user'] = $user;
-        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.userId' => $user['userId']])->result_array();
+        $data['order'] = $this->ModelOrders->ordersWhere(['userId' => $user['userId']])->result_array();
         $data['role'] = 'user';
 
         $this->load->view('temp/header', $data);

@@ -1,15 +1,14 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-<?= $this->session->flashdata('pesan'); ?>
+    <?= $this->session->flashdata('pesan'); ?>
     <div class="row">
         <div class="col-lg-12">
-            <?php if(validation_errors()){?>
-                <div class = "alert alert-danger" role = "alert">
-                    <?= validation_errors();?>
+            <?php if (validation_errors()) { ?>
+                <div class="alert alert-danger alert-message" role="alert">
+                    <?= validation_errors(); ?>
                 </div>
-            <?php }?>
-            <?= $this->session->flashdata('pesan'); ?>
+            <?php } ?>
             <i class="fas fa-sync-alt"></i> Update Produk
             <table class="table table-hover">
                 <thead>
@@ -57,15 +56,15 @@
 
 <!-- Modal Update Produk-->
 <?php foreach ($produk as $p) { ?>
-<div class="modal fade" id="updateProduk<?= $p['productId'] ?>" tabindex="-1" role="dialog" aria-labelledby="updateProduk" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateProduk">Update Produk</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>            
+    <div class="modal fade" id="updateProduk<?= $p['productId'] ?>" tabindex="-1" role="dialog" aria-labelledby="updateProduk" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateProduk">Update Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <form action="<?= base_url('products/updateProduk'); ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
@@ -87,7 +86,7 @@
                                 <input type="hidden" name="old_pict" id="old_pict" value="<?= $p['productImage']; ?>">
                                 <picture>
                                     <source srcset="" type="image/svg+xml">
-                                    <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" style = "height : 500px, width : 200px" class="rounded mx-auto mb-3 d-blok" alt="...">
+                                    <img src="<?= base_url('asset/image/product/') . $p['productImage']; ?>" style="height : 500px, width : 200px" class="rounded mx-auto mb-3 d-blok" alt="...">
                                 </picture>
                             <?php } ?>
                             <input type="file" class="form-control form-control-user" id="foto_produk" name="foto_produk">
@@ -98,10 +97,10 @@
                         <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Ubah</button>
                     </div>
                 </form>
-            
-        </div>
-    </div>
 
-</div>
-<!-- End of Modal Update Produk -->
+            </div>
+        </div>
+
+    </div>
+    <!-- End of Modal Update Produk -->
 <?php } ?>

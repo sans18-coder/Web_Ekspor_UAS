@@ -5,8 +5,6 @@ class Order extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // Load model order_model.php dan detail_order_model.php
-        $this->load->model('ModelOrders');
     }
     public function index()
     {
@@ -14,13 +12,14 @@ class Order extends CI_Controller
         $dataOrder = [
             'userId' => $userId,
             'paymentStatus' => 0,
+            'statusPengajuan' => 0,
         ];
         $this->ModelOrders->simpanOrders($dataOrder);
-        $orderId = $this->ModelOrders->ordersWhere(['userId' => $userId])->row_array();
+        $orderId = $this->ModelOrders->getOrderByLastUser($userId);
         $dataDetailOrder = [
-            'orderId' => $orderId['orderId'],
+            'orderId' => $orderId,
             'productId' => $this->input->post('productId'),
-            'quantity' => $this->input->post('quantity')
+            'quantity' => $this->input->post('quantity'),
         ];
         $this->ModelOrders->simpanDetailOrders($dataDetailOrder);
 
@@ -29,9 +28,15 @@ class Order extends CI_Controller
     public function hapusOrder()
     {
         $where = ['orderId' => $this->input->post('orderId')];
-        $this->ModelOrders->hapusOrders($where);
         $this->ModelOrders->hapusDetailOrders($where);
+        $this->ModelOrders->hapusOrders($where);
         redirect('user/submission');
+    }
+    public function terimaOrder()
+    {
+        $where =  $this->input->post('orderId');
+        $this->ModelOrders->updateOrders('statusPengajuan', 3, 'orderId', $where);
+        redirect('user/history');
     }
     public function orderAll()
     {

@@ -8,7 +8,7 @@
         </div>
         <?php foreach ($produk as $p) {
         ?>
-            <div class="col-12 d-flex justify-content-center mb-3">
+            <div class="col-12 d-flex justify-content-center mb-3" id="<?= $p['productId'] ?>">
                 <div class="row col-9">
                     <div class="col-md-8 margin left-5 mx-auto">
                         <div class="product-description">

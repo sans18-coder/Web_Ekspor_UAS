@@ -59,7 +59,7 @@ class ModelOrders extends CI_Model
         return $this->db->get_where('detail_orders', $where);
     }
 
-    public function simpanDetailOrders($data = null)
+    public function simpanDetailOrders($data)
     {
         $this->db->insert('detail_orders', $data);
     }

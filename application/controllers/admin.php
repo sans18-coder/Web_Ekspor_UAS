@@ -46,7 +46,7 @@ class Admin extends CI_Controller
         $data['judul'] = 'Dasboard Admin';
         $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
         $data['role'] = 'admin';
-        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.statusPengajuan' => 0])->result_array();
+        $data['order'] = $this->ModelOrders->ordersWhere(['statusPengajuan' => 0])->result_array();
         $data['user'] = $this->ModelUser->getUser()->result_array();
 
         $this->load->view('temp/header', $data);
@@ -59,14 +59,26 @@ class Admin extends CI_Controller
     {
         $data['judul'] = 'Pengajuan Acc';
         $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
-        $data['order'] = $this->ModelOrders->getOrders()->result_array();
         $data['role'] = 'admin';
-        $data['order'] = $this->ModelOrders->joinOrdersDetailProduct(['orders.statusPengajuan' => 1])->result_array();
+        $data['order'] = $this->ModelOrders->OrdersWhere(['statusPengajuan' => 1])->result_array();
 
         $this->load->view('temp/header', $data);
         $this->load->view('temp/sidebar_admin', $data);
         $this->load->view('temp/topbar', $data);
         $this->load->view('admin/accepted', $data);
+        $this->load->view('temp/footer');
+    }
+    public function logPenjualan()
+    {
+        $data['judul'] = 'Log Penjualan';
+        $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
+        $data['role'] = 'admin';
+        $data['order'] = $this->ModelOrders->getOrders()->result_array();
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar_admin', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('admin/log-penjualan', $data);
         $this->load->view('temp/footer');
     }
     public function tambahProduk()
@@ -108,12 +120,25 @@ class Admin extends CI_Controller
         $this->load->view('admin/update_produk', $data);
         $this->load->view('temp/footer');
     }
+    public function qtyDisetujui()
+    {
+        $where = htmlspecialchars($this->input->post('detailId'));
+        $qtyDisanggupi = htmlspecialchars($this->input->post('qtyDisanggupi'));
+        $this->ModelOrders->updateDetailOrders('quantityDisetujui', $qtyDisanggupi, 'detailId', $where);
+        redirect('Admin/dasboard');
+    }
     public function accPengajuan()
     {
         $where = htmlspecialchars($this->input->post('orderId'));
-        $qtyDisanggupi = htmlspecialchars($this->input->post('qtyDisanggupi'));
-        $this->ModelOrders->updateDetailOrders('quantityDisetujui', $qtyDisanggupi, 'orderId', $where);
         $this->ModelOrders->updateOrders('statusPengajuan', 1, 'orderId', $where);
+
+        redirect('Admin/dasboard');
+    }
+    public function tolakPengajuan()
+    {
+        $where = htmlspecialchars($this->input->post('orderId'));
+        $this->ModelOrders->updateDetailOrders('quantityDisetujui', 0, 'orderId', $where);
+        $this->ModelOrders->updateOrders('statusPengajuan', 2, 'orderId', $where);
 
         redirect('Admin/dasboard');
     }
@@ -134,5 +159,100 @@ class Admin extends CI_Controller
         $where = htmlspecialchars($this->input->post('orderId'));
         $this->ModelOrders->updateOrders('paymentStatus', 0, 'orderId', $where);
         redirect('Admin/accepted');
+    }
+    public function dataUser()
+    {
+        $data['judul'] = 'Data User';
+        $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
+        $data['user'] = $this->ModelUser->getUser()->result_array();
+        $data['role'] = 'admin';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar_admin', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('admin/data-user', $data);
+        $this->load->view('temp/footer');
+    }
+    public function dataAdmin()
+    {
+        $data['judul'] = 'Data Admin';
+        $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
+        $data['user'] = $this->ModelAdmin->getAdmin()->result_array();
+        $data['role'] = 'admin';
+
+        $this->load->view('temp/header', $data);
+        $this->load->view('temp/sidebar_admin', $data);
+        $this->load->view('temp/topbar', $data);
+        $this->load->view('admin/data-admin', $data);
+        $this->load->view('temp/footer');
+    }
+    public function tambahDataAdmin()
+    {
+        $this->form_validation->set_rules(
+            'nama_admin',
+            'Nama Admin',
+            'required',
+            [
+                'required' => "Name Tidak Boleh Kosong!!"
+            ]
+        );
+        $this->form_validation->set_rules(
+            'password_admin',
+            'Password',
+            'required|trim|min_length[3]|matches[confirm_password_admin]',
+            [
+                'required' => "Password Tidak Boleh Kosong!!",
+                'matches' => 'Password Tidak Cocok!!',
+                'min_length' => 'Password Terlalu Pendek!'
+            ]
+        );
+        $this->form_validation->set_rules(
+            'confirm_password_admin',
+            'Repeat Password',
+            'required|trim|matches[password_admin]'
+        );
+
+        $config['upload_path'] = './asset/image/profile/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['max_size'] = '30000';
+        $config['max_width'] = '10240';
+        $config['max_height'] = '10000';
+        $config['file_name'] = 'img' . time();
+        $this->load->library('upload', $config);
+        if ($this->form_validation->run() == false) {
+            $data['judul'] = 'Data Admin';
+            $data['admin'] = $this->ModelAdmin->cekData(['adminName' => $this->session->userdata('adminName')])->row_array();
+            $data['user'] = $this->ModelAdmin->getAdmin()->result_array();
+            $data['role'] = 'admin';
+
+            $this->load->view('temp/header', $data);
+            $this->load->view('temp/sidebar_admin', $data);
+            $this->load->view('temp/topbar', $data);
+            $this->load->view('admin/data-admin', $data);
+            $this->load->view('temp/footer');
+        } else {
+            if ($this->upload->do_upload('foto_admin')) {
+                $image = $this->upload->data();
+                $gambar = $image['file_name'];
+            } else {
+                $gambar = 'gagal.jpg';
+            }
+            $data = [
+                'adminName' => htmlspecialchars($this->input->post('nama_admin', true)),
+                'adminPassword' => htmlspecialchars($this->input->post('password_admin', true)),
+                'hakAkses' => htmlspecialchars($this->input->post('hak_akses', true)),
+                'imageAdmin' => $gambar,
+            ];
+            $this->ModelAdmin->simpanAdmin($data);
+
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Akun Admin telah di tambahkan</div>');
+            redirect('admin/dataAdmin');
+        }
+    }
+    public function hapusAdmin()
+    {
+        $where = ['adminId' => $this->input->post('adminId')];
+        $this->ModelAdmin->hapusAdmin($where);
+        redirect('admin/dataAdmin');
     }
 }
