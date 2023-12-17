@@ -9,7 +9,7 @@
         foreach ($order as $o) {
             $jml++;
         } ?>
-        <span lass="float-end">Total : <?= $jml; ?></span>
+        <span class="float-end">Total : <?= $jml; ?></span>
     </div>
     <div class="table-responsive table-bordered col-12 mt-2" style="height:600px;">
         <table class="table mt-3">
