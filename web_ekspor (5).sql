@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2023 pada 16.55
+-- Waktu pembuatan: 17 Des 2023 pada 08.40
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.0.23
 
@@ -56,6 +56,14 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `cart`
+--
+
+INSERT INTO `cart` (`cartId`, `userId`, `productId`, `quantity`) VALUES
+(21, 6, 1, 508),
+(22, 6, 2, 500);
+
 -- --------------------------------------------------------
 
 --
@@ -75,7 +83,14 @@ CREATE TABLE `detail_orders` (
 --
 
 INSERT INTO `detail_orders` (`detailId`, `orderId`, `productId`, `quantity`, `quantityDisetujui`) VALUES
-(20, 55, 1, 501, 0);
+(54, 85, 1, 500, 0),
+(55, 86, 2, 500, 0),
+(56, 87, 2, 500, 35),
+(57, 87, 3, 500, 0),
+(58, 88, 1, 500, 500),
+(59, 89, 1, 500, 0),
+(60, 90, 2, 500, 600),
+(61, 90, 2, 500, 700);
 
 -- --------------------------------------------------------
 
@@ -95,7 +110,12 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderId`, `userId`, `paymentStatus`, `statusPengajuan`) VALUES
-(55, 6, 0, 0);
+(85, 6, 0, 1),
+(86, 6, 0, 2),
+(87, 6, 1, 1),
+(88, 6, 0, 0),
+(89, 6, 0, 0),
+(90, 6, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -152,7 +172,8 @@ INSERT INTO `users` (`userId`, `name`, `username`, `email`, `phoneNumber`, `pass
 (5, 'iksankocak', 'ucok', 'iksanwijaya7@gmail.com', '', '$2y$10$sKKwE0wYF3chhqC.fVgQ/.4tero7sJu0HdYxUMplx4KFlfjAgT4H2', 'default.jpeg', 'ikmasasa', '0000-00-00'),
 (6, 'iksan', 'ucok', 'iksanwijaya8@gmail.com', '', '$2y$10$J0d7HZloI5JwJMBDpiovgOJ7ECl.Dg5.FbtrBet0I/jSJl74RQPV6', 'pro1701766783.png', 'ikmasasa', '0000-00-00'),
 (7, 'iksan', 'sans', 'sans123@gmail.com', '', '$2y$10$6Hc.1QKnl0jw6/1HT9QzuOosejJCqOQ/LcTl8.cVmDlEgZyQan52q', 'pro1701753375.png', 'indo', '2023-12-05'),
-(8, 'ikan', 'ikan', 'ikan123@gmail.com', '09090909090', '$2y$10$.g8r834R6QNbn7L4k86zaOMaRKx20jXdK7tSFs.ieCap8cCFRIJJm', 'pro1701943225.png', 'saasasasdsad', '2023-12-07');
+(8, 'ikan', 'ikan', 'ikan123@gmail.com', '09090909090', '$2y$10$.g8r834R6QNbn7L4k86zaOMaRKx20jXdK7tSFs.ieCap8cCFRIJJm', 'pro1701943225.png', 'saasasasdsad', '2023-12-07'),
+(9, 'iksanwijaya', 'sans', 'iksanwijaya1@gmail.com', '098989', '$2y$10$.6Lf570xQcVjzDIaCbjVuejFkNfZDxHRTgxgBnJ9QmKPklxpvVule', 'default.jpeg', 'ikikikiiki', '2023-12-13');
 
 --
 -- Indexes for dumped tables
@@ -207,37 +228,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_orders`
 --
 ALTER TABLE `detail_orders`
-  MODIFY `detailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `detailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `orderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT untuk tabel `products`
 --
 ALTER TABLE `products`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
