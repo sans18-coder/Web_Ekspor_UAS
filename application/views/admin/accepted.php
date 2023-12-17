@@ -7,6 +7,17 @@
     <!-- row table-->
     <div class="page-header">
         <span class="fas fa-users text-primary mt-2 "> Data User Accepted Unpaid</span>
+        <?php
+        $jmlS = 0;
+        $jmlT = 0;
+        foreach ($order as $o) {
+            if ($o['paymentStatus'] == 0) {
+                $jmlS++;
+            } else if ($o['paymentStatus'] == 1) {
+                $jmlT++;
+            }
+        } ?>
+        <span class="float-end">Total : <?= $jmlS; ?></span>
     </div>
     <div class="table-responsive table-bordered col-12 mt-2" style="height: 500px;">
         <table class="table mt-3">
@@ -87,7 +98,7 @@
     <hr class="sidebar-divider">
     <!-- row table-->
     <div class="page-header">
-        <span class="fas fa-users text-primary mt-2 "> Data User Accepted Alredy Paid</span>
+        <span class="fas fa-users text-primary mt-2 "> Data User Accepted Alredy Paid</span><span class="float-end">Total : <?= $jmlT; ?></span>
     </div>
     <div class="table-responsive table-bordered col-12 mt-2" style="height: 500px;">
         <table class="table mt-3">

@@ -6,6 +6,17 @@
     <hr class="sidebar-divider">
     <div class="page-header">
         <span class="fas fa-users text-primary mt-2 "> Data Penjualan Selesai</span>
+        <?php
+        $jmlS = 0;
+        $jmlT = 0;
+        foreach ($order as $o) {
+            if ($o['statusPengajuan'] == 3) {
+                $jmlS++;
+            } else if ($o['statusPengajuan'] == 2) {
+                $jmlT++;
+            }
+        } ?>
+        <span class="float-end">Total : <?= $jmlS; ?></span>
     </div>
     <!-- row table-->
     <div class="table-responsive table-bordered col-12 mt-2" style="height:500px;">
@@ -86,7 +97,7 @@
     <hr class="sidebar-divider">
     <!-- row table-->
     <div class="page-header">
-        <span class="fas fa-users text-primary mt-2 "> Data Penjualan Ditolak</span>
+        <span class="fas fa-users text-primary mt-2 "> Data Penjualan Ditolak</span> <span class="float-end">Total : <?= $jmlT; ?></span>
     </div>
     <div class="table-responsive table-bordered col-12 mt-2" style="height: 500px;">
         <table class="table mt-3">

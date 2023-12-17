@@ -27,36 +27,36 @@
                         foreach ($order as $o) {
                             if ($o['statusPengajuan'] == 0) { ?>
                                 <tr>
-                                    <th scope="row" class="text-center"><?= $a++; ?></th>
+                                    <th scope="row" class="text-center align-middle"><?= $a++; ?></th>
                                     <?php $detail = $this->ModelOrders->detailOrdersWhere(['orderId' => $o['orderId']])->result_array(); ?>
-                                    <td><?php foreach ($detail as $d) {
-                                            $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
-                                            foreach ($detail_product as $d) {
-                                                echo "<p>" . $d['productName'] . '</p>';
-                                            }
-                                        } ?></td>
-                                    <td class="text-center"><?php foreach ($detail as $d) {
-                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
-                                                                foreach ($detail_product as $dp) {
-                                                                    echo '<p>' . $dp['price'] . '</p>';
-                                                                }
-                                                            } ?></td>
-                                    <td class="text-center"><?php foreach ($detail as $d) {
-                                                                echo '<p>' . $d['quantity'] . '</p>';
-                                                            } ?></td>
-                                    <td class="text-center"><?php foreach ($detail as $d) {
-                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
-                                                                foreach ($detail_product as $dp) {
-                                                                    echo '<p>' . $d['quantity'] * $dp['price'] . '</p>';
-                                                                }
-                                                            } ?></td>
-                                    <td class="text-center"><?php foreach ($detail as $d) {
-                                                                if ($d['quantityDisetujui'] == 0) {
-                                                                    echo "<p class='badge badge-secondary fs-6'>Awaiting approval</p><br>";
-                                                                } else {
-                                                                    echo "<p>" . $d['quantityDisetujui'] . "</p>";
-                                                                };
-                                                            } ?></td>
+                                    <td class="align-middle"><?php foreach ($detail as $d) {
+                                                                    $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                                                    foreach ($detail_product as $d) {
+                                                                        echo "<span>" . $d['productName'] . '</span><br>';
+                                                                    }
+                                                                } ?></td>
+                                    <td class="text-center align-middle"><?php foreach ($detail as $d) {
+                                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                                                                foreach ($detail_product as $dp) {
+                                                                                    echo '<span>' . $dp['price'] . '</span><br>';
+                                                                                }
+                                                                            } ?></td>
+                                    <td class="text-center align-middle"><?php foreach ($detail as $d) {
+                                                                                echo '<span>' . $d['quantity'] . '</span><br>';
+                                                                            } ?></td>
+                                    <td class="text-center align-middle"><?php foreach ($detail as $d) {
+                                                                                $detail_product = $this->ModelProduct->productsWhere(['productId' => $d['productId']])->result_array();
+                                                                                foreach ($detail_product as $dp) {
+                                                                                    echo '<span>' . $d['quantity'] * $dp['price'] . '</span><br>';
+                                                                                }
+                                                                            } ?></td>
+                                    <td class="text-center align-middle"><?php foreach ($detail as $d) {
+                                                                                if ($d['quantityDisetujui'] == 0) {
+                                                                                    echo "<span class='badge badge-secondary fs-6'>Awaiting approval</span><br>";
+                                                                                } else {
+                                                                                    echo "<span>" . $d['quantityDisetujui'] . "</span><br>";
+                                                                                };
+                                                                            } ?></td>
                                     <td class="text-center align-middle">
                                         <?php if ($o['statusPengajuan'] == 0) {
                                             echo "<span class='badge badge-secondary fs-6'>Awaiting approval<span>";

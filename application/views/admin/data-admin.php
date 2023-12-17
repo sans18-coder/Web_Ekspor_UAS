@@ -16,7 +16,7 @@
         foreach ($user as $u) {
             $jml++;
         } ?>
-        <span>Total : <?= $jml; ?></span>
+        <span class="float-end">Total : <?= $jml; ?></span>
     </div>
     <div class="table-responsive table-bordered col-12 mt-2" style="height:600px;">
         <table class="table mt-3">
